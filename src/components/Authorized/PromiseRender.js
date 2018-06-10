@@ -1,10 +1,14 @@
 import React from 'react';
+
+// Spin 是指什么? 加载动画
 import { Spin } from 'antd';
 
 export default class PromiseRender extends React.PureComponent {
+
   state = {
     component: null,
   };
+
   componentDidMount() {
     this.setRenderComponent(this.props);
   }
@@ -12,7 +16,9 @@ export default class PromiseRender extends React.PureComponent {
     // new Props enter
     this.setRenderComponent(nextProps);
   }
+  // setRenderComponent 重要函数.
   // set render Component : ok or error
+
   setRenderComponent(props) {
     const ok = this.checkIsInstantiation(props.ok);
     const error = this.checkIsInstantiation(props.error);
@@ -28,6 +34,7 @@ export default class PromiseRender extends React.PureComponent {
         });
       });
   }
+
   // Determine whether the incoming component has been instantiated
   // AuthorizedRoute is already instantiated
   // Authorized  render is already instantiated, children is no instantiated
@@ -38,11 +45,15 @@ export default class PromiseRender extends React.PureComponent {
     }
     return () => target;
   };
+
+
   render() {
     const Component = this.state.component;
     return Component ? (
       <Component {...this.props} />
     ) : (
+
+      // 返回一个全局加载的 Spin
       <div
         style={{
           width: '100%',

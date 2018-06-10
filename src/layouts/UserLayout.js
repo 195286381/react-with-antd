@@ -57,6 +57,8 @@ class UserLayout extends React.PureComponent {
               <div className={styles.desc}>HackerNews</div>
             </div>
             <Switch>
+              {/* 这段代码十分重要, 必须要理解为什么要使用 getRoutes? ???todo */}
+              {/* 从路由配置数据中找到需要渲染的子组件进行动态配置 */}
               {getRoutes(match.path, routerData).map(item => (
                 <Route
                   key={item.key}

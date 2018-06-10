@@ -5,6 +5,11 @@
  *
  */
 
+
+ /**
+  * rollbar 是一款错误追踪调试的工具. 在浏览器里面埋入 rollbar sdk 能够方便的进行错误调试追踪.
+  */
+
 import Rollbar from 'rollbar';
 
 // Track error by rollbar.com

@@ -2,6 +2,7 @@ import React from 'react';
 import PromiseRender from './PromiseRender';
 import { CURRENT } from './index';
 
+// 判断该对象是否是 Promise 对象.
 function isPromise(obj) {
   return (
     !!obj &&

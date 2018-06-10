@@ -1,3 +1,7 @@
+/**
+ * Authorized 认证组件.
+ */
+
 import Authorized from './Authorized';
 import AuthorizedRoute from './AuthorizedRoute';
 import Secured from './Secured';

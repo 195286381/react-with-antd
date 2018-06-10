@@ -137,13 +137,19 @@ function getRenderArr(routes) {
   return renderArr;
 }
 
+
+//////////////////
+/// getRoutes ///
+////////////////
+
 /**
- * Get router routing configuration
+ * Get router routing configuration (获取路由配置)
  * { path:{name,...param}}=>Array<{name,path ...param}>
  * @param {string} path
  * @param {routerData} routerData
  */
 export function getRoutes(path, routerData) {
+  // 从 routerData 找到当前 path 下的所有子 path组件
   let routes = Object.keys(routerData).filter(
     routePath => routePath.indexOf(path) === 0 && routePath !== path
   );
@@ -167,6 +173,7 @@ export function getRoutes(path, routerData) {
 /* eslint no-useless-escape:0 */
 const reg = /(((^https?:(?:\/\/)?)(?:[-;:&=\+\$,\w]+@)?[A-Za-z0-9.-]+|(?:www.|[-;:&=\+\$,\w]+@)[A-Za-z0-9.-]+)((?:\/[\+~%\/.\w-_]*)?\??(?:[-\+=&;%@.\w_]*)#?(?:[\w]*))?)$/g;
 
+// 判断 path 是否为有效的 url.
 export function isUrl(path) {
   return reg.test(path);
 }
