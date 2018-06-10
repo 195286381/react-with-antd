@@ -1,10 +1,10 @@
 /**
  * create by xzzzz in 2018/06/29
+ * @copyright by syszxyy
+ *
  */
 
-
 import { isUrl } from '../utils/utils';
-
 
 /**
  * 菜单 配置路由信息
@@ -187,7 +187,6 @@ const menuData = [
 ];
 
 // 格式化数据
-
 function formatter(data, parentPath = '/', parentAuthority) {
   return data.map(item => {
     let { path } = item;
