@@ -1,17 +1,29 @@
 /**
+ *
  * create by xzzzz in 2018/06/29
  * @copyright by syszxyy
  *
+ * 说明: 整个 menu.js , 我们只需要修改 menuData 对象.
+ * 请保持其他的代码不动.
+ *
  */
 
+ // 导出 isUrl 工具方法, 用于判断当前是否是 url.
 import { isUrl } from '../utils/utils';
 
 /**
+ *
  * 菜单 配置路由信息
+ * 非常重要的配置.
+ *
  */
 
-// 菜单数据
+ //////////////////////
+//// 需要配置的代码 ////
+/////////////////////
+
 const menuData = [
+
   // 黑板页面
   {
     name: 'dashboard',
@@ -186,7 +198,53 @@ const menuData = [
   }
 ];
 
-// 格式化数据
+
+
+
+////////////////////////
+//// 以下代码无需处理 ////
+//////////////////////
+
+/**
+ *
+ *  func: formatter
+ *
+ *  说明: 这里是对菜单配置项的数据进行格式化. 修改原 MenuData 的 authority 和 path
+ *
+ *  格式化之前的路由信息大致如下:
+ *[
+ * {
+ *   name: 'hackerNews',
+ *   icon: 'appstore',
+ *   authority: 'user',
+ *   path: 'hackerNews',
+ *   children: [
+ *     {
+ *       name: 'hotestNews',
+ *       path: 'hot'
+ *     },
+ *   ]
+ * }
+ *]
+ *
+ *  格式化之后的路由数据如下:
+ *[
+ * {
+ *   name: 'hackerNews',
+ *   icon: 'appstore',
+ *   authority: 'user',
+ *   path: '/hackerNews',
+ *   children: [
+ *     {
+ *       name: 'hotestNews',
+ *       path: '/hackerNews/hot'
+ *       authority: 'user',
+ *     },
+ *   ]
+ * }
+ *]
+ */
+
 function formatter(data, parentPath = '/', parentAuthority) {
   return data.map(item => {
     let { path } = item;
